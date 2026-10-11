@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #052e1f;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.6) translateY(10px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+.pop-in { animation: popIn 0.25s ease-out; }
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-up { animation: slideUp 0.3s ease-out; }
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(250, 204, 21, 0.6); }
+  50% { box-shadow: 0 0 18px rgba(250, 204, 21, 0.9); }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+button { touch-action: manipulation; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-in, .slide-up { animation: none !important; }
+}
